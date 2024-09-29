@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './Navigation/PublicRoute';
 import reportWebVitals from './reportWebVitals';
 import { AppRoutes } from './Services/Constants/Routing';
@@ -45,11 +45,11 @@ root.render(
     <CssBaseline />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
+        <HashRouter>
           <AuthenticationProvider>
             <IndexRoute />
           </AuthenticationProvider>
-        </BrowserRouter>
+        </HashRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>

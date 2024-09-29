@@ -8,7 +8,7 @@ export const AuthenticationView: FC<PropsWithChildren> = ({ children }) => {
       <Grid2 size={{ md: 4, xs: 0 }} />
       <Grid2 size={{ md: 4, xs: 12 }}>
         <Typography variant={'h6'} sx={{ textAlign: 'center' }}>
-          UI course
+          UI Course
         </Typography>
         {children}
       </Grid2>

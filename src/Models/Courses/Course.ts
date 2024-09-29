@@ -1,6 +1,7 @@
 import { CourseExercise } from './CourseExercise';
 
 export interface Course {
+  id: string;
   title: string;
   userId: string;
   maxScore: number;

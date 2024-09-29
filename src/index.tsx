@@ -15,7 +15,7 @@ import { AuthenticationProvider } from './Providers/AuthenticationProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CoursesRoutes } from './Navigation/Courses/CoursesRoutes';
 
-const HomePage = lazy(() => import('./Pages/HomePage'));
+const DashboardPage = lazy(() => import('./Pages/DashboardPage'));
 const NotFoundPagePage = lazy(() => import('./Pages/NotFoundPage'));
 
 const IndexRoute = () => {
@@ -24,8 +24,8 @@ const IndexRoute = () => {
       <NavigationDrawer>
         <Routes>
           <Route element={<AuthenticationRoute />}>
-            <Route path={`${AppRoutes.Home}/*`} element={<HomePage />} />
             <Route path={`${AppRoutes.Courses}/*`} element={<CoursesRoutes />} />
+            <Route path={`${AppRoutes.Dashboard}/*`} element={<DashboardPage />} />
           </Route>
 
           <Route element={<PublicRoute />}>

@@ -7,6 +7,7 @@ export type CoursesInitialState = {
 
 export const INITIAL_COURSES: CoursesInitialState = {
   course: {
+    id: '',
     title: '',
     userId: '',
     maxScore: 0,

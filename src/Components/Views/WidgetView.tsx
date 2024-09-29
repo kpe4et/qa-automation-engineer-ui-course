@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 
 type WidgetViewProps = {
   sx?: SxProps<Theme>;
+  menu?: ReactNode;
   title?: string | ReactNode;
   label?: ReactNode;
   children?: ReactNode;
@@ -13,7 +14,7 @@ type WidgetViewProps = {
 };
 
 export const WidgetView: FC<WidgetViewProps> = (props) => {
-  const { sx, title, label, children, childrenSx } = props;
+  const { sx, menu, title, label, children, childrenSx } = props;
 
   return (
     <BasePaper sx={sx}>
@@ -22,6 +23,8 @@ export const WidgetView: FC<WidgetViewProps> = (props) => {
           <Typography variant={'h6'}>{title}</Typography>
         </Grid2>
         <Grid2>{label}</Grid2>
+        <Box sx={{ flexGrow: 1 }} />
+        <Grid2>{menu}</Grid2>
       </Grid2>
       <Box sx={childrenSx}>{children}</Box>
     </BasePaper>

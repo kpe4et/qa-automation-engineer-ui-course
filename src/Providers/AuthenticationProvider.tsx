@@ -49,7 +49,7 @@ const AuthenticationProvider: FC<PropsWithChildren> = ({ children }) => {
     const user = users.find((user) => user.email === email && user.password === password);
     if (user) {
       dispatch(setUser(user));
-      onNavigate(AppRoutes.Home);
+      onNavigate(AppRoutes.Dashboard);
     } else {
       setAlerts({ ...alerts, wrongEmailOrPassword: 'Wrong email or password' });
     }
@@ -66,7 +66,7 @@ const AuthenticationProvider: FC<PropsWithChildren> = ({ children }) => {
       setAlerts({ ...alerts, userAlreadyExists: 'User already exists' });
     } else {
       dispatch(createUser({ email, username, password }));
-      onNavigate(AppRoutes.Home);
+      onNavigate(AppRoutes.Dashboard);
     }
   };
 

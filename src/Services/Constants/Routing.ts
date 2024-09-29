@@ -1,7 +1,7 @@
 export enum AppRoutes {
   NotFound = '*',
 
-  Home = '/home',
+  Dashboard = '/dashboard',
 
   Auth = '/auth',
   AuthLogin = '/auth/login',

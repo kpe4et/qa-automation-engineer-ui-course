@@ -10,7 +10,7 @@ type ProtectedRouteProps = {
 };
 
 export const ProtectedRoute: FC<ProtectedRouteProps> = (props) => {
-  const { children, isAllowed, redirectRoute = AppRoutes.Home, redirectState } = props;
+  const { children, isAllowed, redirectRoute = AppRoutes.Dashboard, redirectState } = props;
 
   if (!isAllowed) {
     return <Navigate to={redirectRoute} replace state={redirectState} />;

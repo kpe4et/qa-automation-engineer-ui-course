@@ -3,10 +3,9 @@ import { CreateCourseToolbarView } from './CreateCourseToolbarView';
 import { CreateCourseForm } from '../../Components/Forms/Courses/CreateCourseForm';
 import { connect, useDispatch } from 'react-redux';
 import { useAppNavigationService } from '../../Services/HookServices/AppNavigationServiceHook';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Course } from '../../Models/Courses/Course';
-import { INITIAL_COURSES } from '../../Redux/Courses/InitialState';
-import { createCourse } from '../../Redux/Courses/CoursesSlice';
+import { createCourse, setCourse, updateCourse } from '../../Redux/Courses/CoursesSlice';
 import { AppRoutes } from '../../Services/Constants/Routing';
 import { ReduxState } from '../../Redux/ReduxState';
 import { User } from '../../Models/Users/User';
@@ -15,12 +14,15 @@ import { CourseExercise } from '../../Models/Courses/CourseExercise';
 
 type CreateCourseViewProps = {
   user: User | null;
+  course: Course;
+  courseId?: string;
 };
 
-const CreateCourseView: FC<CreateCourseViewProps> = ({ user }) => {
+const CreateCourseView: FC<CreateCourseViewProps> = ({ user, course, courseId }) => {
   const dispatch = useDispatch();
   const { onNavigate } = useAppNavigationService();
-  const [course, setCourse] = useState<Course>(INITIAL_COURSES.course);
+
+  const onSetCourse = (course: Course) => dispatch(setCourse(course));
 
   const onCreateCourse = () => {
     if (user) {
@@ -29,16 +31,28 @@ const CreateCourseView: FC<CreateCourseViewProps> = ({ user }) => {
     }
   };
 
-  const setExercises = (exercises: CourseExercise[]) => setCourse({ ...course, exercises });
+  const onEditCourse = () => {
+    dispatch(updateCourse(course));
+    onNavigate(AppRoutes.Courses);
+  };
+
+  const setExercises = (exercises: CourseExercise[]) => onSetCourse({ ...course, exercises });
 
   return (
     <Box>
-      <CreateCourseToolbarView course={course} onCreateCourse={onCreateCourse} />
-      <CreateCourseForm course={course} setCourse={setCourse} />
+      <CreateCourseToolbarView
+        title={courseId === 'create' ? 'Create course' : 'Update course'}
+        course={course}
+        onCreateCourse={courseId === 'create' ? onCreateCourse : onEditCourse}
+      />
+      <CreateCourseForm course={course} setCourse={onSetCourse} />
       <CreateCourseExercisesView exercises={course.exercises} setExercises={setExercises} />
     </Box>
   );
 };
 
-const getState = (state: ReduxState) => ({ user: state.users.user });
+const getState = (state: ReduxState) => ({
+  user: state.users.user,
+  course: state.courses.course
+});
 export default connect(getState)(CreateCourseView);

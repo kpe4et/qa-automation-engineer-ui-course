@@ -5,14 +5,18 @@ import { ToolbarAction } from './BaseToolbarView';
 import { FC } from 'react';
 
 type BoxToolbarViewProps = {
-  title: string;
+  title?: string;
+  subtitle?: string;
   actions: ToolbarAction[];
 };
 
-export const BoxToolbarView: FC<BoxToolbarViewProps> = ({ title, actions }) => {
+export const BoxToolbarView: FC<BoxToolbarViewProps> = (props) => {
+  const { title, subtitle, actions } = props;
+
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Typography fontWeight={'bold'}>{title}</Typography>
+      {title && <Typography fontWeight={'bold'}>{title}</Typography>}
+      {subtitle && <Typography variant={'body1'}>{subtitle}</Typography>}
       <Box sx={{ flexGrow: 1 }} />
       {actions.map((action, index) => (
         <IconButton

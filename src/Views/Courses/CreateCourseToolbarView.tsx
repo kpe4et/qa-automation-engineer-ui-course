@@ -4,12 +4,13 @@ import { FC, useMemo } from 'react';
 import { Course } from '../../Models/Courses/Course';
 
 type CreateCourseToolbarViewProps = {
+  title: string;
   course: Course;
   onCreateCourse: () => void;
 };
 
 export const CreateCourseToolbarView: FC<CreateCourseToolbarViewProps> = (props) => {
-  const { course, onCreateCourse } = props;
+  const { title, course, onCreateCourse } = props;
 
   const isSaveDisabled = useMemo(
     () =>
@@ -23,7 +24,7 @@ export const CreateCourseToolbarView: FC<CreateCourseToolbarViewProps> = (props)
 
   return (
     <BaseToolbarView
-      title={'Create course'}
+      title={title}
       actions={[{ icon: <CheckIcon />, onClick: onCreateCourse, disabled: isSaveDisabled }]}
     />
   );

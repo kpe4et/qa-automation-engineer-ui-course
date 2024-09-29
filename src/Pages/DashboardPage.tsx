@@ -5,11 +5,13 @@ import { BaseLineChart } from '../Components/Charts/BaseLineChart';
 import { Grid2 } from '@mui/material';
 import { BasePieChart } from '../Components/Charts/BasePieChart';
 import { BaseScatterChart } from '../Components/Charts/BaseScatterChart';
+import { BaseToolbarView } from '../Components/Toolbar/BaseToolbarView';
 
-const HomePage = () => {
+const DashboardPage = () => {
   return (
     <MainLayout>
-      <Grid2 container spacing={2}>
+      <BaseToolbarView title={'Dashboard'} />
+      <Grid2 sx={{ mt: 3 }} container spacing={2}>
         <Grid2 size={{ xs: 6 }}>
           <WidgetView title={'Students'}>
             <BaseBarChart />
@@ -35,4 +37,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default DashboardPage;

@@ -20,9 +20,9 @@ export const NavigationDrawerItems = () => {
     <List>
       <DrawerListItem
         icon={<HomeOutlinedIcon />}
-        title={'Home'}
-        selected={pathname.startsWith(AppRoutes.Home)}
-        onClick={onNavigateTo(AppRoutes.Home)}
+        title={'Dashboard'}
+        selected={pathname.startsWith(AppRoutes.Dashboard)}
+        onClick={onNavigateTo(AppRoutes.Dashboard)}
       />
       <DrawerListItem
         icon={<ArticleOutlinedIcon />}

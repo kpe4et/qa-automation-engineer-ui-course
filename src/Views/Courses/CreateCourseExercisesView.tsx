@@ -21,6 +21,10 @@ export const CreateCourseExercisesView: FC<CreateCourseExercisesViewProps> = ({ 
     setExercises([...exercises, { title: 'Exercise title', description: 'Exercise description' }]);
   };
 
+  const onDeleteExercise = (newIndex: number) => () => {
+    setExercises(exercises.filter((_, index) => newIndex !== index));
+  };
+
   return (
     <Box sx={{ mt: 3, mb: 7 }}>
       <BoxToolbarView title={'Exercises'} actions={[{ icon: <AddIcon />, onClick: onCreateExercise }]} />
@@ -33,7 +37,13 @@ export const CreateCourseExercisesView: FC<CreateCourseExercisesViewProps> = ({ 
       )}
       <List>
         {exercises.map((exercise, index) => (
-          <CreateCourseExerciseView key={index} index={index} exercise={exercise} setExercise={setExercise(index)} />
+          <CreateCourseExerciseView
+            key={index}
+            index={index}
+            exercise={exercise}
+            setExercise={setExercise(index)}
+            onDeleteExercise={onDeleteExercise(index)}
+          />
         ))}
       </List>
     </Box>

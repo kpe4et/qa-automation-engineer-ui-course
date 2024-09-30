@@ -11,7 +11,7 @@ const NotFoundPage = () => {
 
   return (
     <MainLayout>
-      <Typography data-testid={'page-not-found-title'} sx={{ alignSelf: 'center' }} variant={'h5'}>
+      <Typography data-testid={'page-not-found-title-text'} sx={{ alignSelf: 'center' }} variant={'h5'}>
         Page not found
       </Typography>
       <Button

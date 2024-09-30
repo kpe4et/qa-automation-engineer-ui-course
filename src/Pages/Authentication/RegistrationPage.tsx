@@ -25,12 +25,12 @@ const RegistrationPage = () => {
   return (
     <MainLayout>
       <AuthenticationView>
-        <BaseAlert testId={'user-already-exists-alert'} message={alerts.userAlreadyExists} />
+        <BaseAlert testId={'registration-page-user-already-exists-alert'} message={alerts.userAlreadyExists} />
         <RegistrationForm request={request} setRequest={setRequest} />
         <Button
           fullWidth
-          id={'registration-button'}
-          data-testid={'registration-button'}
+          id={'registration-page-registration-button'}
+          data-testid={'registration-page-registration-button'}
           sx={{ mt: 3 }}
           variant={'outlined'}
           onClick={onRegister}>

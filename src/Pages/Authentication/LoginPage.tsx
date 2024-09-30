@@ -24,12 +24,12 @@ const LoginPage = () => {
   return (
     <MainLayout>
       <AuthenticationView>
-        <BaseAlert testId={'wrong-email-or-password-alert'} message={alerts.wrongEmailOrPassword} />
+        <BaseAlert testId={'login-page-wrong-email-or-password-alert'} message={alerts.wrongEmailOrPassword} />
         <LoginForm request={request} setRequest={setRequest} />
         <Button
           fullWidth
-          id={'login-button'}
-          data-testid={'login-button'}
+          id={'login-page-login-button'}
+          data-testid={'login-page-login-button'}
           sx={{ mt: 3 }}
           variant={'outlined'}
           onClick={onLogin}

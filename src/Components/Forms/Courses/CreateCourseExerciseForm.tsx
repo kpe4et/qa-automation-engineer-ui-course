@@ -17,8 +17,18 @@ export const CreateCourseExerciseForm: FC<CreateCourseExerciseFormProps> = (prop
 
   return (
     <Box>
-      <BaseTextField value={exercise.title} onChange={onTitle} label={'Title'} />
-      <BaseTextField value={exercise.description} onChange={onDescription} label={'Description'} />
+      <BaseTextField
+        testId={'create-course-exercise-form-title'}
+        value={exercise.title}
+        onChange={onTitle}
+        label={'Title'}
+      />
+      <BaseTextField
+        testId={'create-course-exercise-form-description'}
+        value={exercise.description}
+        onChange={onDescription}
+        label={'Description'}
+      />
     </Box>
   );
 };

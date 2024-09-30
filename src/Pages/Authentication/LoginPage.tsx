@@ -24,17 +24,19 @@ const LoginPage = () => {
   return (
     <MainLayout>
       <AuthenticationView>
-        <BaseAlert message={alerts.wrongEmailOrPassword} />
+        <BaseAlert testId={'wrong-email-or-password-alert'} message={alerts.wrongEmailOrPassword} />
         <LoginForm request={request} setRequest={setRequest} />
         <Button
           fullWidth
+          id={'login-button'}
+          data-testid={'login-button'}
           sx={{ mt: 3 }}
           variant={'outlined'}
           onClick={onLogin}
           disabled={request.email === '' || request.password === ''}>
           Login
         </Button>
-        <BaseRouterLink to={AppRoutes.AuthRegistration} sx={{ mt: 3 }}>
+        <BaseRouterLink id={'login-page-registration-link'} to={AppRoutes.AuthRegistration} sx={{ mt: 3 }}>
           Registration
         </BaseRouterLink>
       </AuthenticationView>

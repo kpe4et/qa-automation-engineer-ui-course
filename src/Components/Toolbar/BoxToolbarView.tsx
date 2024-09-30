@@ -8,19 +8,29 @@ type BoxToolbarViewProps = {
   title?: string;
   subtitle?: string;
   actions: ToolbarAction[];
+  testId: string;
 };
 
 export const BoxToolbarView: FC<BoxToolbarViewProps> = (props) => {
-  const { title, subtitle, actions } = props;
+  const { title, subtitle, actions, testId } = props;
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      {title && <Typography fontWeight={'bold'}>{title}</Typography>}
-      {subtitle && <Typography variant={'body1'}>{subtitle}</Typography>}
+      {title && (
+        <Typography datatest-id={`${testId}-box-toolbar-title-text`} fontWeight={'bold'}>
+          {title}
+        </Typography>
+      )}
+      {subtitle && (
+        <Typography datatest-id={`${testId}-box-toolbar-subtitle-text`} variant={'body1'}>
+          {subtitle}
+        </Typography>
+      )}
       <Box sx={{ flexGrow: 1 }} />
       {actions.map((action, index) => (
         <IconButton
           key={index}
+          data-testid={`${testId}-box-toolbar-${action.testId}-button`}
           sx={{ mr: actions.length === index + 1 ? 0 : 2 }}
           onClick={action.onClick}
           disabled={action.disabled}>

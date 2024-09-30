@@ -27,9 +27,14 @@ export const CreateCourseExercisesView: FC<CreateCourseExercisesViewProps> = ({ 
 
   return (
     <Box sx={{ mt: 3, mb: 7 }}>
-      <BoxToolbarView title={'Exercises'} actions={[{ icon: <AddIcon />, onClick: onCreateExercise }]} />
+      <BoxToolbarView
+        testId={'create-course-exercises'}
+        title={'Exercises'}
+        actions={[{ testId: 'create-exercise', icon: <AddIcon />, onClick: onCreateExercise }]}
+      />
       {exercises.length === 0 && (
         <EmptyView
+          testId={'create-course-exercises'}
           title={'There is no exercises'}
           description={'Click on "Create exercise" button to create new exercise'}
           containerSx={{ mt: 5 }}

@@ -11,16 +11,19 @@ type WidgetViewProps = {
   label?: ReactNode;
   children?: ReactNode;
   childrenSx?: SxProps<Theme>;
+  testId: string;
 };
 
 export const WidgetView: FC<WidgetViewProps> = (props) => {
-  const { sx, menu, title, label, children, childrenSx } = props;
+  const { sx, menu, title, label, children, childrenSx, testId } = props;
 
   return (
     <BasePaper sx={sx}>
       <Grid2 container spacing={1} display={'flex'} alignItems={'center'}>
         <Grid2>
-          <Typography variant={'h6'}>{title}</Typography>
+          <Typography data-testid={`${testId}-widget-title-text`} variant={'h6'}>
+            {title}
+          </Typography>
         </Grid2>
         <Grid2>{label}</Grid2>
         <Box sx={{ flexGrow: 1 }} />

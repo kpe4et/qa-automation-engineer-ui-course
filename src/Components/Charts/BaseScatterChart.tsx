@@ -1,4 +1,5 @@
 import { ScatterChart } from '@mui/x-charts';
+import { FC } from 'react';
 
 const data = [
   {
@@ -164,7 +165,11 @@ const data = [
   }
 ];
 
-export const BaseScatterChart = () => {
+type BaseScatterChartProps = {
+  testId: string;
+};
+
+export const BaseScatterChart: FC<BaseScatterChartProps> = ({ testId }) => {
   return (
     <ScatterChart
       height={300}
@@ -178,6 +183,7 @@ export const BaseScatterChart = () => {
           data: data.map((v) => ({ x: v.x1, y: v.y2, id: v.id }))
         }
       ]}
+      data-testid={`${testId}-scatter-chart`}
     />
   );
 };

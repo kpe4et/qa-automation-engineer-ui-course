@@ -24,14 +24,22 @@ export const CreateCourseForm: FC<CreateCourseFormProps> = (props) => {
 
   return (
     <Box>
-      <BaseTextField value={course.title} onChange={onTitle} label={'Title'} placeholder={'New course'} />
       <BaseTextField
+        testId={'create-course-form-title'}
+        value={course.title}
+        onChange={onTitle}
+        label={'Title'}
+        placeholder={'New course'}
+      />
+      <BaseTextField
+        testId={'create-course-form-estimated-time'}
         value={course.estimatedTime}
         onChange={onEstimatedTime}
         label={'Estimated time'}
         placeholder={'1h 20m'}
       />
       <BaseTextField
+        testId={'create-course-form-description'}
         value={course.description}
         onChange={onDescription}
         label={'Description'}
@@ -39,8 +47,18 @@ export const CreateCourseForm: FC<CreateCourseFormProps> = (props) => {
         rows={5}
         placeholder={'Add description for course'}
       />
-      <BaseNumberTextField value={course.maxScore} onChange={onMaxScore} label={'Max score'} />
-      <BaseNumberTextField value={course.minScore} onChange={onMinScore} label={'Min score'} />
+      <BaseNumberTextField
+        testId={'create-course-form-max-score'}
+        value={course.maxScore}
+        onChange={onMaxScore}
+        label={'Max score'}
+      />
+      <BaseNumberTextField
+        testId={'create-course-form-min-score'}
+        value={course.minScore}
+        onChange={onMinScore}
+        label={'Min score'}
+      />
     </Box>
   );
 };

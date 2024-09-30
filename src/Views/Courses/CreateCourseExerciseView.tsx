@@ -17,8 +17,9 @@ export const CreateCourseExerciseView: FC<CreateCourseExerciseViewProps> = (prop
   return (
     <Box sx={{ mt: 2 }}>
       <BoxToolbarView
+        testId={'create-course-exercise'}
         subtitle={`#${index + 1} Exercise`}
-        actions={[{ icon: <DeleteOutlineOutlinedIcon />, onClick: onDeleteExercise }]}
+        actions={[{ testId: 'delete-exercise', icon: <DeleteOutlineOutlinedIcon />, onClick: onDeleteExercise }]}
       />
       <CreateCourseExerciseForm exercise={exercise} setExercise={setExercise} />
     </Box>

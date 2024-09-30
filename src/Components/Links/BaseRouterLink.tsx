@@ -6,16 +6,17 @@ import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
 
 type BaseRouterLinkProps = {
+  id: string;
   to: AppRoutes;
   sx?: SxProps<Theme>;
 } & PropsWithChildren;
 
 export const BaseRouterLink: FC<BaseRouterLinkProps> = (props) => {
-  const { to, sx, children } = props;
+  const { id, to, sx, children } = props;
 
   return (
     <Box sx={sx}>
-      <Link to={to} underline="hover" component={RouterLink}>
+      <Link id={id} data-testid={id} to={to} underline="hover" component={RouterLink}>
         {children}
       </Link>
     </Box>

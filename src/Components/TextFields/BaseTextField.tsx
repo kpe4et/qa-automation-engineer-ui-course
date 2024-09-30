@@ -19,6 +19,7 @@ export type BaseTextFieldProps = {
   endAdornment?: ReactNode;
   actionTitle?: string;
   onAction?: () => void;
+  testId: string;
 };
 
 export const BaseTextField: FC<BaseTextFieldProps> = (props) => {
@@ -39,12 +40,14 @@ export const BaseTextField: FC<BaseTextFieldProps> = (props) => {
     startAdornment,
     endAdornment,
     actionTitle,
-    onAction
+    onAction,
+    testId
   } = props;
 
   return (
     <Fragment>
       <TextField
+        data-testid={`${testId}-input`}
         rows={rows}
         multiline={multiline}
         value={value}

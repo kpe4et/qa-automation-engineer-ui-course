@@ -1,6 +1,11 @@
 import { LineChart } from '@mui/x-charts';
+import { FC } from 'react';
 
-export const BaseLineChart = () => {
+type BaseLineChartProps = {
+  testId: string;
+};
+
+export const BaseLineChart: FC<BaseLineChartProps> = ({ testId }) => {
   return (
     <LineChart
       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
@@ -8,6 +13,7 @@ export const BaseLineChart = () => {
       height={300}
       margin={{ left: 30, right: 30, top: 30, bottom: 30 }}
       grid={{ vertical: true, horizontal: true }}
+      data-testid={`${testId}-line-chart`}
     />
   );
 };

@@ -11,11 +11,11 @@ type CourseViewProps = {
 
 export const CourseView: FC<CourseViewProps> = ({ course }) => {
   return (
-    <WidgetView sx={{ mt: 3 }} title={course.title} menu={<CourseViewMenuItem course={course} />}>
+    <WidgetView testId={'course'} sx={{ mt: 3 }} title={course.title} menu={<CourseViewMenuItem course={course} />}>
       <WidgetInfoRowsView>
-        <BaseInfoRowView name={'Max score'} value={course.maxScore} />
-        <BaseInfoRowView name={'Min score'} value={course.minScore} />
-        <BaseInfoRowView name={'Estimated time'} value={course.estimatedTime} />
+        <BaseInfoRowView testId={'course-max-score'} name={'Max score'} value={course.maxScore} />
+        <BaseInfoRowView testId={'course-min-score'} name={'Min score'} value={course.minScore} />
+        <BaseInfoRowView testId={'course-estimated-time'} name={'Estimated time'} value={course.estimatedTime} />
       </WidgetInfoRowsView>
     </WidgetView>
   );

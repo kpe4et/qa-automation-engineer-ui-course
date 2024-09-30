@@ -9,10 +9,11 @@ type BaseMenuProps = {
   buttonSx?: SxProps<Theme>;
   menu: null | HTMLElement;
   setMenu: (menu: null | HTMLElement) => void;
+  testId: string;
 };
 
 export const BaseMenu: FC<BaseMenuProps> = (props) => {
-  const { children, icon, buttonSx, disabled, menu, setMenu } = props;
+  const { children, icon, buttonSx, disabled, menu, setMenu, testId } = props;
 
   const onOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setMenu(event.currentTarget);
@@ -22,10 +23,20 @@ export const BaseMenu: FC<BaseMenuProps> = (props) => {
 
   return (
     <React.Fragment>
-      <IconButton size={'small'} onClick={onOpen} sx={buttonSx} disabled={disabled}>
+      <IconButton
+        data-testid={`${testId}-menu-button`}
+        size={'small'}
+        onClick={onOpen}
+        sx={buttonSx}
+        disabled={disabled}>
         {icon}
       </IconButton>
-      <Menu anchorEl={menu} open={Boolean(menu)} onClose={onClose} disableScrollLock={true}>
+      <Menu
+        data-testid={`${testId}-menu`}
+        anchorEl={menu}
+        open={Boolean(menu)}
+        onClose={onClose}
+        disableScrollLock={true}>
         {children}
       </Menu>
     </React.Fragment>

@@ -10,26 +10,26 @@ import { BaseToolbarView } from '../Components/Toolbar/BaseToolbarView';
 const DashboardPage = () => {
   return (
     <MainLayout>
-      <BaseToolbarView title={'Dashboard'} />
+      <BaseToolbarView testId={'dashboard'} title={'Dashboard'} />
       <Grid2 sx={{ mt: 3 }} container spacing={2}>
-        <Grid2 size={{ xs: 6 }}>
-          <WidgetView title={'Students'}>
-            <BaseBarChart />
+        <Grid2 size={{ md: 6, xs: 12 }}>
+          <WidgetView testId={'students'} title={'Students'}>
+            <BaseBarChart testId={'students'} />
           </WidgetView>
         </Grid2>
-        <Grid2 size={{ xs: 6 }}>
-          <WidgetView title={'Activities'}>
-            <BaseLineChart />
+        <Grid2 size={{ md: 6, xs: 12 }}>
+          <WidgetView testId={'activities'} title={'Activities'}>
+            <BaseLineChart testId={'activities'} />
           </WidgetView>
         </Grid2>
-        <Grid2 size={{ xs: 6 }}>
-          <WidgetView title={'Courses'}>
-            <BasePieChart />
+        <Grid2 size={{ md: 6, xs: 12 }}>
+          <WidgetView testId={'courses'} title={'Courses'}>
+            <BasePieChart testId={'courses'} />
           </WidgetView>
         </Grid2>
-        <Grid2 size={{ xs: 6 }}>
-          <WidgetView title={'Scores'}>
-            <BaseScatterChart />
+        <Grid2 size={{ md: 6, xs: 12 }}>
+          <WidgetView testId={'scores'} title={'Scores'}>
+            <BaseScatterChart testId={'scores'} />
           </WidgetView>
         </Grid2>
       </Grid2>

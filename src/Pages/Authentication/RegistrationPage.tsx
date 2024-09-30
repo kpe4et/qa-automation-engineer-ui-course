@@ -25,12 +25,18 @@ const RegistrationPage = () => {
   return (
     <MainLayout>
       <AuthenticationView>
-        <BaseAlert message={alerts.userAlreadyExists} />
+        <BaseAlert testId={'user-already-exists-alert'} message={alerts.userAlreadyExists} />
         <RegistrationForm request={request} setRequest={setRequest} />
-        <Button fullWidth sx={{ mt: 3 }} variant={'outlined'} onClick={onRegister}>
+        <Button
+          fullWidth
+          id={'registration-button'}
+          data-testid={'registration-button'}
+          sx={{ mt: 3 }}
+          variant={'outlined'}
+          onClick={onRegister}>
           Registration
         </Button>
-        <BaseRouterLink to={AppRoutes.AuthLogin} sx={{ mt: 3 }}>
+        <BaseRouterLink id={'registration-page-login-link'} to={AppRoutes.AuthLogin} sx={{ mt: 3 }}>
           Login
         </BaseRouterLink>
       </AuthenticationView>

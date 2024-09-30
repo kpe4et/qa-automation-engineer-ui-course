@@ -16,6 +16,7 @@ const CoursesListView: FC<CoursesListViewProps> = ({ courses }) => {
     <Box>
       {courses.length === 0 && (
         <EmptyView
+          testId={'courses-list'}
           containerSx={{ mt: 6 }}
           title={'There is no results'}
           description={'Results from the load test pipeline will be displayed here'}

@@ -41,9 +41,14 @@ export const CourseViewMenuItem: FC<CourseViewMenuItemProps> = (props) => {
 
   return (
     <Fragment>
-      <BaseMenu menu={menu} setMenu={setMenu} icon={<MoreVert fontSize={'small'} />}>
-        <BaseMenuItem label={'Edit'} icon={<EditOutlinedIcon />} onClick={onEdit} />
-        <BaseMenuItem label={'Delete'} icon={<DeleteOutlineOutlinedIcon />} onClick={onDelete} />
+      <BaseMenu testId={'course-view'} menu={menu} setMenu={setMenu} icon={<MoreVert fontSize={'small'} />}>
+        <BaseMenuItem testId={'course-view-edit'} label={'Edit'} icon={<EditOutlinedIcon />} onClick={onEdit} />
+        <BaseMenuItem
+          testId={'course-view-delete'}
+          label={'Delete'}
+          icon={<DeleteOutlineOutlinedIcon />}
+          onClick={onDelete}
+        />
       </BaseMenu>
       <ConfirmDeleteCourseModal
         modal={confirmDeleteCourseModal}

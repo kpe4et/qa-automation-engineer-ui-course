@@ -3,11 +3,12 @@ import { FC } from 'react';
 
 type BaseAlertProps = {
   message: string | null;
+  testId: string;
 };
 
-export const BaseAlert: FC<BaseAlertProps> = ({ message }) => {
+export const BaseAlert: FC<BaseAlertProps> = ({ message, testId }) => {
   return message ? (
-    <Alert sx={{ mt: 2 }} variant="outlined" severity={'error'}>
+    <Alert data-testid={testId} sx={{ mt: 2 }} variant="outlined" severity={'error'}>
       {message}
     </Alert>
   ) : null;

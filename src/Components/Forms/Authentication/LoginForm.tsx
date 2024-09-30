@@ -15,8 +15,14 @@ export const LoginForm: FC<LoginFormProps> = ({ request, setRequest }) => {
 
   return (
     <Box>
-      <BaseTextField label={'Email'} value={request.email} onChange={onEmail} />
-      <BaseTextField type={'password'} label={'Password'} value={request.password} onChange={onPassword} />
+      <BaseTextField testId={'login-form-email'} label={'Email'} value={request.email} onChange={onEmail} />
+      <BaseTextField
+        testId={'login-form-password'}
+        type={'password'}
+        label={'Password'}
+        value={request.password}
+        onChange={onPassword}
+      />
     </Box>
   );
 };

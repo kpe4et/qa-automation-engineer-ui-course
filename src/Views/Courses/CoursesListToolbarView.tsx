@@ -10,5 +10,11 @@ export const CoursesListToolbarView = () => {
     onNavigate(AppRoutes.CreateCourse, { courseId: 'create' });
   };
 
-  return <BaseToolbarView title={'Courses'} actions={[{ icon: <AddIcon />, onClick: onCreateCourse }]} />;
+  return (
+    <BaseToolbarView
+      testId={'courses-list'}
+      title={'Courses'}
+      actions={[{ testId: 'create-course', icon: <AddIcon />, onClick: onCreateCourse }]}
+    />
+  );
 };

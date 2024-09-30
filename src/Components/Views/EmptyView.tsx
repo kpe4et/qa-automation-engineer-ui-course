@@ -6,9 +6,10 @@ type EmptyViewProps = {
   title: string;
   description: string | ReactNode;
   containerSx?: SxProps<Theme>;
+  testId: string;
 };
 
-export const EmptyView: FC<EmptyViewProps> = ({ title, description, containerSx }) => {
+export const EmptyView: FC<EmptyViewProps> = ({ title, description, containerSx, testId }) => {
   return (
     <Box
       sx={{
@@ -18,11 +19,11 @@ export const EmptyView: FC<EmptyViewProps> = ({ title, description, containerSx 
         alignItems: 'center',
         ...containerSx
       }}>
-      <FolderOpenOutlinedIcon fontSize={'large'} />
-      <Typography sx={{ mt: 2 }} variant={'h6'}>
+      <FolderOpenOutlinedIcon data-testid={`${testId}-empty-view-icon`} fontSize={'large'} />
+      <Typography data-testid={`${testId}-empty-view-title-text`} sx={{ mt: 2 }} variant={'h6'}>
         {title}
       </Typography>
-      <Typography>{description}</Typography>
+      <Typography data-testid={`${testId}-empty-view-title-text`}>{description}</Typography>
     </Box>
   );
 };

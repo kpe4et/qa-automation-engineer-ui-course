@@ -5,13 +5,14 @@ type BaseMenuItemProps = {
   icon?: React.ReactNode;
   label: string;
   onClick?: () => void;
+  testId: string;
 };
 
-export const BaseMenuItem: FC<BaseMenuItemProps> = ({ icon, label, onClick }) => {
+export const BaseMenuItem: FC<BaseMenuItemProps> = ({ icon, label, onClick, testId }) => {
   return (
-    <MenuItem onClick={onClick}>
-      {icon && <ListItemIcon>{icon}</ListItemIcon>}
-      <ListItemText>{label}</ListItemText>
+    <MenuItem data-testid={`${testId}-menu-item`} onClick={onClick}>
+      {icon && <ListItemIcon data-testid={`${testId}-menu-item-icon`}>{icon}</ListItemIcon>}
+      <ListItemText data-testid={`${testId}-menu-item-text`}>{label}</ListItemText>
     </MenuItem>
   );
 };

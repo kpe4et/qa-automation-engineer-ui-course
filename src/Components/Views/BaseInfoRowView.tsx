@@ -10,6 +10,7 @@ export type BaseInfoRowViewProps = {
   value?: string | number | null;
   component?: ReactNode;
   containerSx?: SxProps<Theme>;
+  testId: string;
 };
 
 const Text = styled(Typography)(() => ({
@@ -20,7 +21,7 @@ const Text = styled(Typography)(() => ({
 }));
 
 export const BaseInfoRowView: FC<BaseInfoRowViewProps> = (props) => {
-  const { name, value, component = false, containerSx } = props;
+  const { name, value, component = false, containerSx, testId } = props;
 
   const internalValue = useMemo(() => value || 'unknown', [value]);
 
@@ -30,12 +31,16 @@ export const BaseInfoRowView: FC<BaseInfoRowViewProps> = (props) => {
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', ...containerSx }}>
-      <Text>
+      <Text data-testid={`${testId}-info-row-view-text`}>
         {name}: {component ? component : internalValue}
       </Text>
       {Boolean(value) && (
         <Box sx={{ display: 'flex' }}>
-          <IconButton size={'small'} sx={{ ml: 2 }} onClick={onCopy}>
+          <IconButton
+            data-testid={`${testId}-info-row-view-copy-button`}
+            size={'small'}
+            sx={{ ml: 2 }}
+            onClick={onCopy}>
             <ContentCopyIcon fontSize={'small'} />
           </IconButton>
         </Box>

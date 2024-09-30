@@ -19,18 +19,20 @@ export const NavigationDrawerItems = () => {
   return (
     <List>
       <DrawerListItem
+        testId={'dashboard'}
         icon={<HomeOutlinedIcon />}
         title={'Dashboard'}
         selected={pathname.startsWith(AppRoutes.Dashboard)}
         onClick={onNavigateTo(AppRoutes.Dashboard)}
       />
       <DrawerListItem
+        testId={'courses'}
         icon={<ArticleOutlinedIcon />}
         title={'Courses'}
         selected={pathname.startsWith(AppRoutes.Courses)}
         onClick={onNavigateTo(AppRoutes.Courses)}
       />
-      <DrawerListItem icon={<LogoutIcon />} title={'Logout'} onClick={logout} />
+      <DrawerListItem testId={'logout'} icon={<LogoutIcon />} title={'Logout'} onClick={logout} />
     </List>
   );
 };

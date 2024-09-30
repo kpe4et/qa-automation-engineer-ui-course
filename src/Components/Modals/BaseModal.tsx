@@ -33,9 +33,9 @@ export const BaseModal: FC<BaseModalProps> = (props) => {
   return (
     <Dialog open={modal} onClose={onClose} scroll={'paper'} fullWidth maxWidth={maxWidth}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <DialogTitle>{title}</DialogTitle>
+        <DialogTitle data-testid={'modal-title-text'}>{title}</DialogTitle>
         <Box sx={{ flexGrow: 1 }} />
-        <IconButton sx={{ mr: 2 }} onClick={onClose}>
+        <IconButton data-testid={'modal-close-button'} sx={{ mr: 2 }} onClick={onClose}>
           <CloseIcon />
         </IconButton>
       </Box>
@@ -43,9 +43,11 @@ export const BaseModal: FC<BaseModalProps> = (props) => {
         {children}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button data-testid={'modal-cancel-button'} onClick={onClose}>
+          Cancel
+        </Button>
         {onConfirm && (
-          <Button onClick={onConfirm} disabled={confirmDisabled}>
+          <Button data-testid={'modal-confirm-button'} onClick={onConfirm} disabled={confirmDisabled}>
             Confirm
           </Button>
         )}

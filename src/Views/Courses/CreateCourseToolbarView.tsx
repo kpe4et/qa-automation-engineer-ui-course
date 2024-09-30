@@ -24,8 +24,9 @@ export const CreateCourseToolbarView: FC<CreateCourseToolbarViewProps> = (props)
 
   return (
     <BaseToolbarView
+      testId={'create-course'}
       title={title}
-      actions={[{ icon: <CheckIcon />, onClick: onCreateCourse, disabled: isSaveDisabled }]}
+      actions={[{ testId: 'create-course', icon: <CheckIcon />, onClick: onCreateCourse, disabled: isSaveDisabled }]}
     />
   );
 };

@@ -11,13 +11,15 @@ type BaseNumberTextFieldProps = {
   helperText?: string;
   endAdornment?: ReactNode;
   startAdornment?: ReactNode;
+  testId: string;
 };
 
 export const BaseNumberTextField: FC<BaseNumberTextFieldProps> = (props) => {
-  const { sx, value, onChange, label, disabled, error, helperText, endAdornment, startAdornment } = props;
+  const { sx, value, onChange, label, disabled, error, helperText, endAdornment, startAdornment, testId } = props;
 
   return (
     <TextField
+      data-testid={`${testId}-input`}
       sx={{ mt: 3, ...sx }}
       value={value.toString()}
       onChange={(event) => onChange(Number(event.target.value))}

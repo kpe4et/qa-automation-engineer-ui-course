@@ -1,6 +1,11 @@
 import { PieChart } from '@mui/x-charts';
+import { FC } from 'react';
 
-export const BasePieChart = () => {
+type BasePieChartProps = {
+  testId: string;
+};
+
+export const BasePieChart: FC<BasePieChartProps> = ({ testId }) => {
   return (
     <PieChart
       series={[
@@ -13,6 +18,7 @@ export const BasePieChart = () => {
         }
       ]}
       height={300}
+      data-testid={`${testId}-pie-chart`}
     />
   );
 };

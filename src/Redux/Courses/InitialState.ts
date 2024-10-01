@@ -14,6 +14,7 @@ export const INITIAL_COURSES: CoursesInitialState = {
     minScore: 0,
     exercises: [],
     description: '',
+    previewImage: null,
     estimatedTime: ''
   },
   courses: []

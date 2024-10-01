@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
 import { ReduxState } from '../../Redux/ReduxState';
 import { connect } from 'react-redux';
 import { Course } from '../../Models/Courses/Course';
 import { FC } from 'react';
 import { CourseView } from './CourseView';
 import { EmptyView } from '../../Components/Views/EmptyView';
+import { Grid2 } from '@mui/material';
 
 type CoursesListViewProps = {
   courses: Course[];
@@ -22,11 +22,13 @@ const CoursesListView: FC<CoursesListViewProps> = ({ courses }) => {
           description={'Results from the load test pipeline will be displayed here'}
         />
       )}
-      <List>
+      <Grid2 sx={{ mt: 3 }} container spacing={2}>
         {courses.map((course, index) => (
-          <CourseView key={index} course={course} />
+          <Grid2 key={index} size={{ md: 6, xs: 12 }}>
+            <CourseView course={course} />
+          </Grid2>
         ))}
-      </List>
+      </Grid2>
     </Box>
   );
 };

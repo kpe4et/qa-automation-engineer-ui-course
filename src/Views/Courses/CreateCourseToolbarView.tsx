@@ -18,6 +18,7 @@ export const CreateCourseToolbarView: FC<CreateCourseToolbarViewProps> = (props)
       course.minScore === 0 ||
       course.maxScore === 0 ||
       course.description === '' ||
+      course.previewImage === null ||
       course.estimatedTime === '',
     [course]
   );

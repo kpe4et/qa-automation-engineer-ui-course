@@ -1,14 +1,12 @@
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import { FC, ReactNode, useMemo } from 'react';
+import { FC, ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import { styled, SxProps, Theme } from '@mui/material';
 
 export type BaseInfoRowViewProps = {
+  icon?: ReactNode;
   name: string;
   value?: string | number | null;
-  component?: ReactNode;
   containerSx?: SxProps<Theme>;
   testId: string;
 };
@@ -21,30 +19,18 @@ const Text = styled(Typography)(() => ({
 }));
 
 export const BaseInfoRowView: FC<BaseInfoRowViewProps> = (props) => {
-  const { name, value, component = false, containerSx, testId } = props;
-
-  const internalValue = useMemo(() => value || 'unknown', [value]);
-
-  const onCopy = async () => {
-    await navigator.clipboard.writeText(String(value));
-  };
+  const { icon, name, value = false, containerSx, testId } = props;
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', ...containerSx }}>
-      <Text data-testid={`${testId}-info-row-view-text`}>
-        {name}: {component ? component : internalValue}
-      </Text>
-      {Boolean(value) && (
-        <Box sx={{ display: 'flex' }}>
-          <IconButton
-            data-testid={`${testId}-info-row-view-copy-button`}
-            size={'small'}
-            sx={{ ml: 2 }}
-            onClick={onCopy}>
-            <ContentCopyIcon fontSize={'small'} />
-          </IconButton>
+      {icon && (
+        <Box sx={{ mr: 1, display: 'flex', alignItems: 'center' }} data-testid={`${testId}-info-row-view-icon`}>
+          {icon}
         </Box>
       )}
+      <Text data-testid={`${testId}-info-row-view-text`}>
+        {name}: {value || 'unknown'}
+      </Text>
     </Box>
   );
 };

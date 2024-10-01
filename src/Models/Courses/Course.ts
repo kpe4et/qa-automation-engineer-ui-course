@@ -8,5 +8,6 @@ export interface Course {
   minScore: number;
   exercises: CourseExercise[];
   description: string;
+  previewImage: string | null;
   estimatedTime: string;
 }

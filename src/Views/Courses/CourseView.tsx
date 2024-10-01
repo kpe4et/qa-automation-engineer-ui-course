@@ -4,6 +4,10 @@ import { WidgetView } from '../../Components/Views/WidgetView';
 import { WidgetInfoRowsView } from '../../Components/Views/WidgetInfoRowsView';
 import { BaseInfoRowView } from '../../Components/Views/BaseInfoRowView';
 import { CourseViewMenuItem } from '../../Components/Menus/Courses/CourseViewMenuItem';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { CoursePreviewImage } from '../../Components/Images/CoursePreviewImage';
 
 type CourseViewProps = {
   course: Course;
@@ -11,11 +15,27 @@ type CourseViewProps = {
 
 export const CourseView: FC<CourseViewProps> = ({ course }) => {
   return (
-    <WidgetView testId={'course'} sx={{ mt: 3 }} title={course.title} menu={<CourseViewMenuItem course={course} />}>
+    <WidgetView testId={'course'} title={course.title} menu={<CourseViewMenuItem course={course} />}>
+      {course.previewImage && <CoursePreviewImage image={course.previewImage} />}
       <WidgetInfoRowsView>
-        <BaseInfoRowView testId={'course-max-score'} name={'Max score'} value={course.maxScore} />
-        <BaseInfoRowView testId={'course-min-score'} name={'Min score'} value={course.minScore} />
-        <BaseInfoRowView testId={'course-estimated-time'} name={'Estimated time'} value={course.estimatedTime} />
+        <BaseInfoRowView
+          testId={'course-max-score'}
+          icon={<KeyboardDoubleArrowUpIcon />}
+          name={'Max score'}
+          value={course.maxScore}
+        />
+        <BaseInfoRowView
+          testId={'course-min-score'}
+          icon={<KeyboardDoubleArrowDownIcon />}
+          name={'Min score'}
+          value={course.minScore}
+        />
+        <BaseInfoRowView
+          testId={'course-estimated-time'}
+          icon={<AccessTimeOutlinedIcon />}
+          name={'Estimated time'}
+          value={course.estimatedTime}
+        />
       </WidgetInfoRowsView>
     </WidgetView>
   );

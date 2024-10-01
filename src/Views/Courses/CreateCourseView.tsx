@@ -11,6 +11,7 @@ import { ReduxState } from '../../Redux/ReduxState';
 import { User } from '../../Models/Users/User';
 import { CreateCourseExercisesView } from './CreateCourseExercisesView';
 import { CourseExercise } from '../../Models/Courses/CourseExercise';
+import { CreateCoursePreviewImageView } from './CreateCoursePreviewImageView';
 
 type CreateCourseViewProps = {
   user: User | null;
@@ -38,6 +39,8 @@ const CreateCourseView: FC<CreateCourseViewProps> = ({ user, course, courseId })
 
   const setExercises = (exercises: CourseExercise[]) => onSetCourse({ ...course, exercises });
 
+  const setPreviewImage = (previewImage: string | null) => onSetCourse({ ...course, previewImage });
+
   return (
     <Box>
       <CreateCourseToolbarView
@@ -45,6 +48,7 @@ const CreateCourseView: FC<CreateCourseViewProps> = ({ user, course, courseId })
         course={course}
         onCreateCourse={courseId === 'create' ? onCreateCourse : onEditCourse}
       />
+      <CreateCoursePreviewImageView previewImage={course.previewImage} setPreviewImage={setPreviewImage} />
       <CreateCourseForm course={course} setCourse={onSetCourse} />
       <CreateCourseExercisesView exercises={course.exercises} setExercises={setExercises} />
     </Box>

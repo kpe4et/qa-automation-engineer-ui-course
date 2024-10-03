@@ -32,6 +32,7 @@ const RegistrationPage = () => {
           id={'registration-page-registration-button'}
           data-testid={'registration-page-registration-button'}
           sx={{ mt: 3 }}
+          disabled={request.email === '' || request.password === '' || request.password === ''}
           variant={'outlined'}
           onClick={onRegister}>
           Registration

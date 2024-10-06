@@ -23,7 +23,7 @@ export const EmptyView: FC<EmptyViewProps> = ({ title, description, containerSx,
       <Typography data-testid={`${testId}-empty-view-title-text`} sx={{ mt: 2 }} variant={'h6'}>
         {title}
       </Typography>
-      <Typography data-testid={`${testId}-empty-view-title-text`}>{description}</Typography>
+      <Typography data-testid={`${testId}-empty-view-description-text`}>{description}</Typography>
     </Box>
   );
 };

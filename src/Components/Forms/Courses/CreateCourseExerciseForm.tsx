@@ -4,12 +4,13 @@ import { FC } from 'react';
 import { BaseTextField } from '../../TextFields/BaseTextField';
 
 type CreateCourseExerciseFormProps = {
+  index: number;
   exercise: CourseExercise;
   setExercise: (exercise: CourseExercise) => void;
 };
 
 export const CreateCourseExerciseForm: FC<CreateCourseExerciseFormProps> = (props) => {
-  const { exercise, setExercise } = props;
+  const { index, exercise, setExercise } = props;
 
   const onTitle = (title: string) => setExercise({ ...exercise, title });
 
@@ -18,13 +19,13 @@ export const CreateCourseExerciseForm: FC<CreateCourseExerciseFormProps> = (prop
   return (
     <Box>
       <BaseTextField
-        testId={'create-course-exercise-form-title'}
+        testId={`create-course-exercise-form-title-${index}`}
         value={exercise.title}
         onChange={onTitle}
         label={'Title'}
       />
       <BaseTextField
-        testId={'create-course-exercise-form-description'}
+        testId={`create-course-exercise-form-description-${index}`}
         value={exercise.description}
         onChange={onDescription}
         label={'Description'}

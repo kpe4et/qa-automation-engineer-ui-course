@@ -17,11 +17,11 @@ export const CreateCourseExerciseView: FC<CreateCourseExerciseViewProps> = (prop
   return (
     <Box sx={{ mt: 2 }}>
       <BoxToolbarView
-        testId={'create-course-exercise'}
+        testId={`create-course-exercise-${index}`}
         subtitle={`#${index + 1} Exercise`}
         actions={[{ testId: 'delete-exercise', icon: <DeleteOutlineOutlinedIcon />, onClick: onDeleteExercise }]}
       />
-      <CreateCourseExerciseForm exercise={exercise} setExercise={setExercise} />
+      <CreateCourseExerciseForm index={index} exercise={exercise} setExercise={setExercise} />
     </Box>
   );
 };

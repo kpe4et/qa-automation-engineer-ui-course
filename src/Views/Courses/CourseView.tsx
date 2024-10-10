@@ -16,7 +16,7 @@ type CourseViewProps = {
 export const CourseView: FC<CourseViewProps> = ({ course }) => {
   return (
     <WidgetView testId={'course'} title={course.title} menu={<CourseViewMenuItem course={course} />}>
-      {course.previewImage && <CoursePreviewImage image={course.previewImage} testId={'course-preview-image'} />}
+      {course.previewImage && <CoursePreviewImage image={course.previewImage} />}
       <WidgetInfoRowsView>
         <BaseInfoRowView
           testId={'course-max-score'}

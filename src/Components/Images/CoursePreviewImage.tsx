@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 type CoursePreviewImageProps = {
   image: string;
+  testId: string;
 };
 
 export const CoursePreviewImage: FC<CoursePreviewImageProps> = ({ image }) => {

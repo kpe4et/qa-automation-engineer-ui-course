@@ -125,7 +125,7 @@ export const ImageUploadWidget: FC<ImageUploadWidgetProps> = (props) => {
               variant={'outlined'}
               startIcon={<DeleteOutlineOutlinedIcon />}
               onClick={onRemoveFile}>
-              Remove file
+              Remove image
             </Button>
           )}
         </ButtonContainer>

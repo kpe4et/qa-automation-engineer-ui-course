@@ -17,12 +17,12 @@ export const BoxToolbarView: FC<BoxToolbarViewProps> = (props) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       {title && (
-        <Typography datatest-id={`${testId}-box-toolbar-title-text`} fontWeight={'bold'}>
+        <Typography data-testid={`${testId}-box-toolbar-title-text`} fontWeight={'bold'}>
           {title}
         </Typography>
       )}
       {subtitle && (
-        <Typography datatest-id={`${testId}-box-toolbar-subtitle-text`} variant={'body1'}>
+        <Typography data-testid={`${testId}-box-toolbar-subtitle-text`} variant={'body1'}>
           {subtitle}
         </Typography>
       )}

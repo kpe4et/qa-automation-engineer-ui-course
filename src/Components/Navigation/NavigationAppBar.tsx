@@ -15,11 +15,11 @@ const NavigationAppBar: FC<NavigationAppBarProps> = ({ user }) => {
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
+        <Typography variant="h6" noWrap component="div" data-testid={'navigation-navbar-app-title-text'}>
           UI Course
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Typography>Welcome, {user?.username}!</Typography>
+        <Typography data-testid={'navigation-navbar-welcome-title-text'}>Welcome, {user?.username}!</Typography>
       </Toolbar>
     </AppBar>
   );

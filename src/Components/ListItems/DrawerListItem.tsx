@@ -16,7 +16,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = (props) => {
     <ListItem disableGutters>
       <ListItemButton onClick={onClick} selected={selected} data-testid={`${testId}-drawer-list-item-button`}>
         <ListItemIcon data-testid={`${testId}-drawer-list-item-icon`}>{icon}</ListItemIcon>
-        <ListItemText data-testid={`${testId}-drawer-list-title-text`} primary={title} />
+        <ListItemText data-testid={`${testId}-drawer-list-item-title-text`} primary={title} />
       </ListItemButton>
     </ListItem>
   );

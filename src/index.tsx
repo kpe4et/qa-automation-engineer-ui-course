@@ -14,6 +14,7 @@ import { AuthenticationRoute } from './Navigation/Authentication/AuthenticationR
 import { AuthenticationProvider } from './Providers/AuthenticationProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CoursesRoutes } from './Navigation/Courses/CoursesRoutes';
+import { WelcomePage } from './Pages/WelcomePage';
 
 const DashboardPage = lazy(() => import('./Pages/DashboardPage'));
 const NotFoundPagePage = lazy(() => import('./Pages/NotFoundPage'));
@@ -30,6 +31,7 @@ const IndexRoute = () => {
 
           <Route element={<PublicRoute />}>
             <Route path={`${AppRoutes.Auth}/*`} element={<AuthenticationRoutes />} />
+            <Route path={`${AppRoutes.Welcome}/*`} element={<WelcomePage />} />
           </Route>
 
           <Route path={AppRoutes.NotFound} element={<NotFoundPagePage />} />

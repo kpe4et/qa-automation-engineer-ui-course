@@ -4,6 +4,7 @@ import { SxProps } from '@mui/system';
 export interface SelectOption<Value extends string> {
   title: string;
   value: Value;
+  testId: string;
 }
 
 type BaseSelectProps<Value extends string> = {
@@ -12,10 +13,11 @@ type BaseSelectProps<Value extends string> = {
   value: Value;
   options: SelectOption<Value>[];
   onSelect: (value: Value) => void;
+  testId: string;
 };
 
 export const BaseSelect = <Value extends string>(props: BaseSelectProps<Value>) => {
-  const { sx, label, value, options, onSelect } = props;
+  const { sx, label, value, options, onSelect, testId } = props;
 
   const onSelectValue = (event: SelectChangeEvent) => {
     onSelect(event.target.value as Value);
@@ -23,10 +25,10 @@ export const BaseSelect = <Value extends string>(props: BaseSelectProps<Value>) 
 
   return (
     <FormControl sx={sx} size="small" fullWidth>
-      <InputLabel>{label}</InputLabel>
-      <Select value={String(value || '')} label={label} onChange={onSelectValue}>
+      <InputLabel data-test-id={`${testId}-select-label`}>{label}</InputLabel>
+      <Select value={String(value || '')} label={label} onChange={onSelectValue} data-test-id={`${testId}-select`}>
         {options.map((option, index) => (
-          <MenuItem key={index} value={option.value || ''}>
+          <MenuItem key={index} value={option.value || ''} data-test-id={`${testId}-select-${option.testId}-option`}>
             {option.title}
           </MenuItem>
         ))}

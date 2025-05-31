@@ -12,14 +12,24 @@ export const WelcomeFeedbackForm = () => {
         value={topic}
         label={'Topic'}
         options={[
-          { value: 'content', title: 'Course content' },
-          { value: 'design', title: 'Page design' },
-          { value: 'tooling', title: 'Tooling & stack' }
+          { value: 'content', title: 'Course content', testId: 'content' },
+          { value: 'design', title: 'Page design', testId: 'design' },
+          { value: 'tooling', title: 'Tooling & stack', testId: 'tooling' }
         ]}
         onSelect={setTopic}
+        testId={'welcome-feedback-form-topic'}
       />
-      <TextField sx={{ mt: 2 }} size="small" label="Your feedback" variant="outlined" fullWidth multiline rows={3} />
-      <Button sx={{ mt: 2 }} variant="contained" fullWidth>
+      <TextField
+        sx={{ mt: 2 }}
+        size="small"
+        label="Your feedback"
+        variant="outlined"
+        fullWidth
+        multiline
+        rows={3}
+        data-test-id={'welcome-feedback-form-your-feedback-textarea'}
+      />
+      <Button sx={{ mt: 2 }} variant="contained" fullWidth data-test-id={'welcome-feedback-form-send-feedback-button'}>
         Send Feedback
       </Button>
     </Box>

@@ -8,7 +8,11 @@ export const WelcomeFeedbackView = () => {
     <BasePaper sx={{ mt: 3, mb: 7 }}>
       <Grid2 container spacing={2}>
         <Grid2 size={{ md: 6, xs: 12 }}>
-          <BaseInfoView title={'Feedback'} description={'Let us know what you think about the course'} />
+          <BaseInfoView
+            title={'Feedback'}
+            description={'Let us know what you think about the course'}
+            testId={'feedback'}
+          />
         </Grid2>
         <Grid2 size={{ md: 6, xs: 12 }}>
           <WelcomeFeedbackForm />
